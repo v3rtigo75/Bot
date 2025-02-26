@@ -1,10 +1,9 @@
 import requests
 from flask import Flask, request, jsonify
-import os
-from flask_cors import CORS
+from flask_cors import CORS  # Importa CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app)  # Habilita CORS para todas las rutas
 
 # Respuestas predefinidas del bot
 RESPUESTAS = {
