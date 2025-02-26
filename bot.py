@@ -15,7 +15,7 @@ RESPUESTAS = {
 }
 
 # Endpoint de la API de Qwen
-QWEN_API_URL = "https://api.qwen.com/v1/chat"
+QWEN_API_URL = "https://dashscope-intl.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
 API_KEY = "sk-ee011c67af7842ff8b1cb126f2ed2e1c"  # Reemplaza esto con tu API Key real
 
 def consultar_a_qwen(mensaje):
