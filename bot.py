@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import os
 
 app = Flask(__name__)
 
@@ -22,4 +23,6 @@ def chat():
     return jsonify({"respuesta": response})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Usa el puerto proporcionado por Render o el puerto 5000 por defecto
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
