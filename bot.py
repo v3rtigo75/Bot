@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 import os
+from flask_cors import CORS  # Importa CORS
 
 app = Flask(__name__)
+CORS(app)  # Habilita CORS para todas las rutas
 
 # Respuestas predefinidas del bot
 RESPUESTAS = {
@@ -13,21 +15,14 @@ RESPUESTAS = {
 
 @app.route('/')
 def home():
-    # Mensaje de bienvenida para la ruta raíz
     return "Bienvenido al bot de atención al cliente. Usa la ruta /chat para interactuar."
 
 @app.route('/chat', methods=['POST'])
 def chat():
-    # Obtener el mensaje del usuario
     user_message = request.json.get('mensaje', '').lower()
-    
-    # Buscar una respuesta adecuada
     response = RESPUESTAS.get(user_message, RESPUESTAS['default'])
-    
-    # Devolver la respuesta como JSON
     return jsonify({"respuesta": response})
 
 if __name__ == '__main__':
-    # Usa el puerto proporcionado por Render o el puerto 5000 por defecto
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
