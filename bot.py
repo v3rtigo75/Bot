@@ -11,6 +11,11 @@ RESPUESTAS = {
     "default": "Lo siento, no entendí eso. ¿Podrías intentarlo de nuevo?"
 }
 
+@app.route('/')
+def home():
+    # Mensaje de bienvenida para la ruta raíz
+    return "Bienvenido al bot de atención al cliente. Usa la ruta /chat para interactuar."
+
 @app.route('/chat', methods=['POST'])
 def chat():
     # Obtener el mensaje del usuario
